@@ -1,0 +1,270 @@
+import React from 'react'
+
+const App: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-[#FAFAFA]">
+      <main className="ml-20 md:ml-24 px-8 md:px-24 py-16 md:py-32 overflow-y-auto">
+        <div className="max-w-[1400px] mx-auto">
+          {/* 返回按钮 */}
+          <button
+            onClick={() => window.history.back()}
+            className="flex items-center gap-2 text-black font-bold hover:gap-4 transition-all py-1"
+          >
+            <span>←</span> 返回
+          </button>
+
+          {/* Hero Section */}
+          <div className="mt-8 flex flex-col lg:flex-row gap-10 items-start lg:items-center">
+            <div className="lg:w-3/5">
+              <header className="pt-0">
+                <div className="flex items-center gap-4 mb-5 mt-[-20px]">
+                  <div className="inline-block px-4 py-1 rounded-full border border-black text-[10px] font-black uppercase tracking-widest">
+                    Case Study / 用研/客户体验提升
+                  </div>
+                  <div className="px-4 py-1 rounded-full bg-black text-white text-[10px] font-black uppercase tracking-widest">
+                    2024-2025
+                  </div>
+                </div>
+
+                <h1 className="text-5xl md:text-[80px] font-bold tracking-tighter leading-[0.85] text-black mb-8">
+                  OA办公平台
+                </h1>
+
+                <p className="text-2xl text-gray-500 font-light max-w-4xl italic leading-8">
+                  从0到1的复杂业务。<br/>深度用研，体验优先的设计。<br/>无障碍设计、通用设计。
+                </p>
+              </header>
+            </div>
+
+            <div className="lg:w-2/5 relative group">
+              <div className="w-full aspect-square bg-black rounded-[64px] flex items-center justify-center text-white overflow-hidden shadow-2xl">
+                <img 
+                  src="/source/OA1.PNG" 
+                  alt="OA办公平台" 
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-12 left-12 text-white">
+                  <div className="text-4xl font-black mb-2">OA办公平台</div>
+                  <div className="text-sm font-bold uppercase tracking-[0.4em] opacity-60 italic">Enterprise Solution</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 01. NARRATIVE FLOW: PRE-SALES */}
+          <section className="space-y-24 mt-40">
+            <div className="w-full space-y-8">
+              <div className="flex items-center gap-4 text-red-600 font-black italic">
+                <span className="text-6xl leading-none">01</span>
+                <span className="w-16 h-px bg-red-600/20"></span>
+                <span className="uppercase tracking-[0.3em] text-xs">售前阶段：深入了解业务</span>
+              </div>
+              <h2 className="text-5xl font-black tracking-tighter italic leading-tight mb-6">
+                面对复杂又陌生的业务，<br/>设计师如何下手？
+              </h2>
+              <div className="space-y-2 text-[18px] text-black font-light leading-relaxed">
+                <p className="mb-4">通过主动介入业务，确保设计决策不再是"盲人摸象"。</p>
+                <p>✦  设计师参与到一线现场的 <span className="font-bold">售前阶段</span> ，在市场中感受自己的产品与竞品</p>
+                <p>✦  田野调查，<span className="font-bold">到客户现场</span> ，收集不同行业、不同角色的用户反馈</p>
+                <p>✦  邀请专家培训，提升研发团队对业务的理解</p>
+              </div>
+              
+              <div className="mt-36 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <div className="aspect-video rounded-lg overflow-hidden">
+                    <img src="/source/OA01.png" alt="我的售前笔记" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="text-center">
+                    <span className="text-sm text-gray-500 font-light">我的售前笔记</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="aspect-video rounded-lg overflow-hidden">
+                    <img src="/source/OA02.png" alt="客户使用现场" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="text-center">
+                    <span className="text-sm text-gray-500 font-light">客户使用场景</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* 02. 用研成果转化 */}
+          <section className="space-y-24 mt-40">
+            <div className="max-w-3xl space-y-8">
+              <div className="flex items-center gap-4 text-red-600 font-black italic">
+                <span className="text-6xl leading-none">02</span>
+                <span className="w-16 h-px bg-red-600/20"></span>
+                <span className="uppercase tracking-[0.3em] text-xs">用研成果转化</span>
+              </div>
+            </div>
+              
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+              <div className="col-span-1 space-y-4">
+                <h2 className="text-5xl font-black tracking-tighter italic leading-tight">
+                  我们发现了什么？
+                </h2>
+                <p className="text-xl text-gray-500 font-light leading-8">
+                  B端OA产品利益相关方中<br/>
+                  "领导"这一类用户最为关注产品体验<br/>
+                  此外，领导还是达成业务目标的关键点
+                </p>
+              </div>
+              <div className="col-span-2 rounded-[48px] overflow-hidden border border-gray-100">
+                <img 
+                  src="/source/OA03.png" 
+                  alt="用户痛点分析" 
+                  className="w-full h-auto object-cover" 
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* 03. 如何保障体验 */}
+          <section className="space-y-24 mt-40">
+            <div className="max-w-3xl space-y-8">
+              <div className="flex items-center gap-4 text-red-600 font-black italic">
+                <span className="text-6xl leading-none">03</span>
+                <span className="w-16 h-px bg-red-600/20"></span>
+                <span className="uppercase tracking-[0.3em] text-xs">体验保障</span>
+              </div>
+              <h2 className="text-5xl font-black tracking-tighter italic leading-tight">
+                如何保障体验？
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+              <div className="p-8 bg-white border border-gray-100 rounded-[48px] shadow-sm flex flex-col justify-between group hover:border-black transition-all cursor-pointer"
+                   onClick={() => window.open('http://kosmic.work', '_blank')}>
+                <div>
+                  <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 text-2xl">🤖</div>
+                  <h4 className="text-xl font-bold mb-4">Phase 01: AI Studio 原型</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">产品经理利用 AI Studio 工具快速生成初始交互逻辑与功能大纲，将模糊想法结构化。</p>
+                </div>
+                <div className="mt-8 text-[10px] font-black uppercase text-gray-300">PM Led</div>
+              </div>
+
+              <div className="p-8 bg-black text-white rounded-[48px] shadow-xl flex flex-col justify-between group">
+                <div>
+                  <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-2xl">⌨️</div>
+                  <h4 className="text-xl font-bold mb-4 text-white">Phase 02: AI 编程 Demo</h4>
+                  <p className="text-white/40 text-sm leading-relaxed">作为设计师，我利用 AI 辅助编程，将静态稿直接转化为可交互的 Web Demo，甚至包含实时数据反馈。</p>
+                </div>
+                <div className="mt-8 text-[10px] font-black uppercase text-white/20">Designer Led (My Core)</div>
+              </div>
+
+              <div className="p-8 bg-white border border-gray-100 rounded-[48px] shadow-sm flex flex-col justify-between group hover:border-black transition-all">
+                <div>
+                  <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 text-2xl">🎙️</div>
+                  <h4 className="text-xl font-bold mb-4">Phase 03: 高层决策确认</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">拿着"所见即所得"的 Demo 现场汇报给高层领导。这种高保真的体验让领导能瞬间感知核心价值，快速决策。</p>
+                </div>
+                <div className="mt-8 text-[10px] font-black uppercase text-gray-300">Stakeholder Review</div>
+              </div>
+
+              <div className="p-8 bg-white border border-gray-100 rounded-[48px] shadow-sm flex flex-col justify-between group hover:border-black transition-all">
+                <div>
+                  <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 text-2xl">🏗️</div>
+                  <h4 className="text-xl font-bold mb-4">Phase 04: 精细化落地</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">输出组件与设计规范（.md），开发使用AI辅助实现组件。输出核心视觉稿，AI代码实现最终效果，实现设计与开发的高效协同。</p>
+                </div>
+                <div className="mt-8 text-[10px] font-black uppercase text-gray-300">Development</div>
+              </div>
+            </div>
+          </section>
+
+          {/* 04. 如何设计 */}
+          <section className="space-y-24 mt-40">
+            <div className="max-w-3xl space-y-8">
+              <div className="flex items-center gap-4 text-red-600 font-black italic">
+                <span className="text-6xl leading-none">04</span>
+                <span className="w-16 h-px bg-red-600/20"></span>
+                <span className="uppercase tracking-[0.3em] text-xs">设计过程</span>
+              </div>
+              <h2 className="text-5xl font-black tracking-tighter italic leading-tight">
+                如何设计？
+              </h2>
+            </div>
+            
+            <div className="space-y-8">
+              {[
+                { title: '场景化设计', description: '围绕"办文、办会、办事"三大核心场景，构建统一的信息架构和交互模式。' },
+                { title: '多屏适配方案', description: '针对PC、平板、手机三端进行差异化设计，支持跨设备无缝切换。' },
+                { title: '无障碍与适老化', description: '遵循WCAG AA标准，实现高对比度、大字体、语音辅助等功能。' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-8 items-start">
+                  <div className="w-20 text-5xl font-black text-black/10">{String(idx + 1).padStart(2, '0')}</div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                    <p className="text-lg text-gray-500 leading-relaxed font-light">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 05. 如何沉淀项目资产 */}
+          <section className="space-y-24 mt-40">
+            <div className="max-w-3xl space-y-8">
+              <div className="flex items-center gap-4 text-red-600 font-black italic">
+                <span className="text-6xl leading-none">05</span>
+                <span className="w-16 h-px bg-red-600/20"></span>
+                <span className="uppercase tracking-[0.3em] text-xs">项目资产</span>
+              </div>
+              <h2 className="text-5xl font-black tracking-tighter italic leading-tight">
+                如何沉淀项目资产？
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                '调研范围：8家央企，覆盖政府、能源、金融等行业',
+                '用户画像：决策层（55-65岁）、执行层（35-45岁）、操作层（25-35岁）',
+                '核心需求：公文流转效率、会议管理、移动办公支持',
+                '技术约束：私有化部署、数据安全、国产化适配'
+              ].map((item, idx) => (
+                <div key={idx} className="bg-gray-50 p-10 rounded-[48px]">
+                  <p className="text-lg text-gray-500 leading-relaxed font-light">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 06. 作品展示 */}
+          <section className="space-y-24 mt-40">
+            <div className="max-w-3xl space-y-8">
+              <div className="flex items-center gap-4 text-red-600 font-black italic">
+                <span className="text-6xl leading-none">06</span>
+                <span className="w-16 h-px bg-red-600/20"></span>
+                <span className="uppercase tracking-[0.3em] text-xs">作品展示</span>
+              </div>
+              <h2 className="text-5xl font-black tracking-tighter italic leading-tight">
+                作品展示 · Gallery
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                'https://picsum.photos/1200/800?random=50',
+                'https://picsum.photos/1200/800?random=51',
+                'https://picsum.photos/1200/800?random=52'
+              ].map((image, idx) => (
+                <div key={idx} className="overflow-hidden rounded-[48px] bg-gray-100 h-96">
+                  <img
+                    src={image}
+                    alt={`OA办公平台 - ${idx + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  )
+}
+
+export default App

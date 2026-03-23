@@ -1,0 +1,7 @@
+{
+  "name": "Hoho‘s Portfolio",
+  "description": "A high-end personal portfolio for a designer, styled with the Material Design 3 Expressive aesthetic, featuring AI-powered design exploration.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

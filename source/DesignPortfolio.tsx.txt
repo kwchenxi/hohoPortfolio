@@ -1,0 +1,597 @@
+import React from 'react';
+import { 
+  ArrowLeft, 
+  Sparkles, 
+  BrainCircuit, 
+  Calendar, 
+  MessageSquare, 
+  CheckCircle2, 
+  Zap,
+  Layout,
+  Users,
+  Clock,
+  ArrowRight,
+  Mic,
+  FileText,
+  Bell,
+  Search,
+  MoreHorizontal
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+
+interface DesignPortfolioProps {
+  onBack: () => void;
+}
+
+const DesignPortfolio: React.FC<DesignPortfolioProps> = ({ onBack }) => {
+  return (
+    <div className="min-h-screen bg-white font-sans text-slate-900 overflow-y-auto custom-scrollbar z-50 relative">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-slate-100 z-50 px-8 py-4 flex justify-between items-center">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white font-bold">D</div>
+          <span className="font-bold text-lg tracking-tight">Design<span className="text-slate-400">Folio</span></span>
+        </div>
+        <button 
+          onClick={onBack}
+          className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors"
+        >
+          <ArrowLeft size={16} />
+          返回原型演示
+        </button>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="pt-32 pb-20 px-8 max-w-6xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold mb-6 border border-blue-100">
+            <Sparkles size={12} />
+            AIGC 企业级应用设计案例
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+            从对话到执行：<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              重塑企业协作的 AI 闭环
+            </span>
+          </h1>
+          <p className="text-xl text-slate-500 max-w-2xl leading-relaxed mb-12">
+            探索人工智能如何打通“会议-待办-日程”的业务断点。一个能够自动提取会议决策、智能规划日程、并实时同步消息的下一代企业工作台。
+          </p>
+          
+          <div className="flex flex-wrap gap-8 text-sm text-slate-500 border-t border-slate-100 pt-8">
+            <div>
+              <p className="font-bold text-slate-900 mb-1">Role</p>
+              <p>Product Designer</p>
+            </div>
+            <div>
+              <p className="font-bold text-slate-900 mb-1">Timeline</p>
+              <p>2 Weeks (Concept to Prototype)</p>
+            </div>
+            <div>
+              <p className="font-bold text-slate-900 mb-1">Tools</p>
+              <p>React, Tailwind, Gemini API</p>
+            </div>
+          </div>
+        </motion.div>
+      </header>
+
+      {/* Visual Showcase - The Loop */}
+      <section className="py-20 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">场景 + AI 探索实践</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              从真实办公场景出发，让 AI 像一位默契的助手，自然地融入从沟通到执行的每一个环节。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-blue-200 via-indigo-200 to-emerald-200 -z-10"></div>
+
+            {[
+              { 
+                icon: <Users size={24} className="text-blue-600" />, 
+                title: "1. 信息采集与生成", 
+                desc: "会议中，AI 静默聆听并梳理脉络，自动生成结构化纪要。",
+                color: "bg-blue-50 border-blue-100"
+              },
+              { 
+                icon: <BrainCircuit size={24} className="text-indigo-600" />, 
+                title: "2. 待办提取与清洗", 
+                desc: "它读懂的不仅是文字，更是上下文中的任务与决策意图。",
+                color: "bg-indigo-50 border-indigo-100"
+              },
+              { 
+                icon: <Calendar size={24} className="text-emerald-600" />, 
+                title: "3. 自动排程与落地", 
+                desc: "基于你的忙闲状态，AI 贴心地建议最佳执行时间，供你确认。",
+                color: "bg-emerald-50 border-emerald-100"
+              },
+              { 
+                icon: <MessageSquare size={24} className="text-purple-600" />, 
+                title: "4. 通知与分发", 
+                desc: "一键确认，待办即刻转化为日程与通知，让想法落地为行动。",
+                color: "bg-purple-50 border-purple-100"
+              }
+            ].map((step, idx) => (
+              <motion.div 
+                key={idx}
+                whileHover={{ y: -5 }}
+                className={`p-6 rounded-2xl border ${step.color} bg-white shadow-sm relative`}
+              >
+                <div className="w-12 h-12 rounded-xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-4">
+                  {step.icon}
+                </div>
+                <h3 className="font-bold text-lg mb-2">{step.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Phase 1: Meetings */}
+      <section className="py-24 px-8 max-w-6xl mx-auto border-b border-slate-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold mb-6">
+              <span className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px]">1</span>
+              第一阶段：会议模块
+            </div>
+            <h2 className="text-3xl font-bold mb-6">信息采集与生成：<br/>让对话沉淀为资产</h2>
+            <p className="text-lg text-slate-500 mb-6 leading-relaxed">
+              在会议场景中，AI 的核心任务是“听懂”并“结构化”。我们设计了实时转写与智能摘要双屏互动的界面。
+            </p>
+            
+            <div className="space-y-6">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                  <Mic size={16} className="text-blue-500" /> AI 如何运行 (How it works)
+                </h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  系统接入实时音频流，通过 ASR (自动语音识别) 将语音转为文本流。随后，LLM (大语言模型) 对文本进行分段处理，识别发言人，并实时提取关键信息。
+                </p>
+              </div>
+
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3 text-slate-600">
+                  <CheckCircle2 size={18} className="text-blue-500 mt-1 shrink-0" />
+                  <span><strong>实时转写：</strong> 区分发言人，生成带时间戳的剧本式记录。</span>
+                </li>
+                <li className="flex items-start gap-3 text-slate-600">
+                  <CheckCircle2 size={18} className="text-blue-500 mt-1 shrink-0" />
+                  <span><strong>结构化摘要：</strong> 会议结束后，AI 自动生成“关键决策”、“遗留问题”和“待办事项”。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Mock UI: Meeting Interface */}
+          <div className="bg-slate-900 rounded-2xl p-2 shadow-2xl border border-slate-800">
+            <div className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700">
+              {/* Header */}
+              <div className="bg-slate-900/50 p-3 border-b border-slate-700 flex justify-between items-center">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                  <span className="text-xs text-slate-300 font-mono">REC 00:42:15</span>
+                </div>
+                <span className="text-xs text-slate-400">Q1 产品规划会</span>
+              </div>
+              
+              <div className="grid grid-cols-2 h-64">
+                {/* Left: Transcript */}
+                <div className="p-4 border-r border-slate-700 space-y-4 overflow-hidden relative">
+                  <div className="flex gap-2">
+                    <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] text-white font-bold">A</div>
+                    <div className="flex-1">
+                      <p className="text-[10px] text-slate-400 mb-1">Alice 09:42</p>
+                      <p className="text-xs text-slate-200 leading-relaxed">我们需要在下周三之前完成 API 文档的更新。</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center text-[10px] text-white font-bold">B</div>
+                    <div className="flex-1">
+                      <p className="text-[10px] text-slate-400 mb-1">Bob 09:43</p>
+                      <p className="text-xs text-slate-200 leading-relaxed">没问题，我会跟进这个事情，并同步给前端团队。</p>
+                    </div>
+                  </div>
+                  {/* Fade out effect */}
+                  <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-slate-800 to-transparent"></div>
+                </div>
+
+                {/* Right: AI Summary Generation */}
+                <div className="p-4 bg-slate-800/50">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sparkles size={12} className="text-indigo-400" />
+                    <span className="text-xs font-bold text-indigo-300">AI 实时摘要</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="bg-indigo-500/10 border border-indigo-500/20 p-2 rounded text-[10px] text-indigo-200">
+                      <span className="block font-bold mb-1 text-indigo-400">待办事项检测:</span>
+                      • 更新 API 文档 (负责人: Bob, 截止: 下周三)
+                    </div>
+                    <div className="bg-slate-700/50 p-2 rounded text-[10px] text-slate-400">
+                      <span className="block font-bold mb-1 text-slate-500">关键决策:</span>
+                      • 确认 Q1 发布时间表...
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Phase 2: Assistant Sidebar */}
+      <section className="py-24 px-8 max-w-6xl mx-auto bg-slate-50 border-b border-slate-200">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+           <div className="order-2 lg:order-1 relative">
+              {/* Mock UI for Sidebar */}
+              <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xl max-w-sm mx-auto">
+                <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100">
+                  <div className="flex items-center gap-2">
+                    <Sparkles size={16} className="text-blue-500" />
+                    <span className="font-bold text-sm text-slate-800">AI 待办提取</span>
+                  </div>
+                  <span className="bg-blue-50 text-blue-600 text-[10px] px-2 py-0.5 rounded-full font-medium">3 New</span>
+                </div>
+                
+                <div className="space-y-3">
+                  {/* Task Card */}
+                  <div className="bg-white p-3 rounded-xl border border-blue-200 shadow-sm ring-1 ring-blue-100 relative group">
+                    <div className="absolute -top-2 -right-2 bg-emerald-500 text-white text-[9px] px-1.5 py-0.5 rounded shadow-sm">
+                      92% 置信度
+                    </div>
+                    <div className="flex justify-between items-start mb-1">
+                      <span className="bg-red-50 text-red-600 text-[9px] font-bold px-1.5 py-0.5 rounded border border-red-100">High</span>
+                    </div>
+                    <p className="font-bold text-sm text-slate-800 mb-2">更新 Q1 季报 PPT 演示稿</p>
+                    
+                    {/* Context Source */}
+                    <div className="bg-slate-50 p-2 rounded border border-slate-100 mb-2">
+                      <p className="text-[9px] text-slate-400 mb-0.5 flex items-center gap-1">
+                        <MessageSquare size={8} /> 来源上下文:
+                      </p>
+                      <p className="text-[10px] text-slate-600 italic">"Bob, 你需要在周五前把 Q1 的 PPT 准备好..."</p>
+                    </div>
+
+                    <div className="flex gap-2 mt-2">
+                      <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-[10px] py-1.5 rounded font-medium transition-colors">
+                        确认添加
+                      </button>
+                      <button className="px-2 bg-slate-100 hover:bg-slate-200 text-slate-500 rounded transition-colors">
+                        <MoreHorizontal size={12} />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Other Tasks (Dimmed) */}
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 opacity-60">
+                    <div className="h-2 w-1/3 bg-slate-200 rounded mb-2"></div>
+                    <div className="h-3 w-3/4 bg-slate-200 rounded"></div>
+                  </div>
+                </div>
+              </div>
+           </div>
+           
+           <div className="order-1 lg:order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold mb-6">
+                <span className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center text-[10px]">2</span>
+                第二阶段：智能助手侧边栏
+              </div>
+              <h2 className="text-3xl font-bold mb-6">待办提取与清洗：<br/>从非结构化到结构化</h2>
+              <p className="text-lg text-slate-500 mb-6 leading-relaxed">
+                AI 不会直接污染你的日历。侧边栏充当了“过滤器”，让用户对提取出的待办进行确认和清洗。
+              </p>
+              
+              <div className="space-y-6">
+                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                  <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    <BrainCircuit size={16} className="text-indigo-500" /> AI 如何 GC (Generative Content)
+                  </h4>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    AI 使用 NLP (自然语言处理) 技术分析会议纪要，提取实体信息（Who, When, What）。它会计算“置信度评分”，如果评分较低，会提示用户人工确认。同时，它会保留“上下文引用”，让用户知道这个任务是基于哪句话生成的。
+                  </p>
+                </div>
+
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 text-slate-600">
+                    <CheckCircle2 size={18} className="text-indigo-500 mt-1 shrink-0" />
+                    <span><strong>置信度评分：</strong> 显性化展示 AI 的把握程度，建立信任。</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate-600">
+                    <CheckCircle2 size={18} className="text-indigo-500 mt-1 shrink-0" />
+                    <span><strong>上下文溯源：</strong> 点击待办即可回溯原始对话，拒绝断章取义。</span>
+                  </li>
+                </ul>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Phase 3: Calendar */}
+      <section className="py-24 px-8 max-w-6xl mx-auto border-b border-slate-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold mb-6">
+              <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px]">3</span>
+              第三阶段：日历模块
+            </div>
+            <h2 className="text-3xl font-bold mb-6">自动排程与落地：<br/>智能解决时间冲突</h2>
+            <p className="text-lg text-slate-500 mb-6 leading-relaxed">
+              当用户确认待办后，AI 负责最复杂的“落位”工作。它不仅是填空，更是资源调度。
+            </p>
+            
+            <div className="space-y-6">
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                  <Zap size={16} className="text-emerald-500" /> AI 运行逻辑
+                </h4>
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  AI 读取用户的 Calendar Availability (忙闲状态)。如果建议时间段有空，直接落位并标记为 `isAiGenerated`。如果冲突，AI 会触发 Conflict Resolution 策略，建议“改期”或“委派”。
+                </p>
+              </div>
+
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3 text-slate-600">
+                  <CheckCircle2 size={18} className="text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>智能空闲检测：</strong> 自动寻找最佳时间槽，避免碎片化时间。</span>
+                </li>
+                <li className="flex items-start gap-3 text-slate-600">
+                  <CheckCircle2 size={18} className="text-emerald-500 mt-1 shrink-0" />
+                  <span><strong>冲突解决建议：</strong> 遇到冲突不报错，而是提供解决方案（如：改期至 16:00）。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Mock UI: Calendar Grid */}
+          <div className="bg-white rounded-2xl p-6 shadow-2xl border border-slate-200 relative overflow-hidden">
+             {/* Calendar Header */}
+             <div className="flex justify-between items-center mb-6">
+               <h3 className="font-bold text-slate-800">2026年1月25日</h3>
+               <div className="flex gap-2">
+                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                 <span className="text-[10px] text-slate-500">工作</span>
+                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                 <span className="text-[10px] text-slate-500">AI 生成</span>
+               </div>
+             </div>
+
+             {/* Time Grid */}
+             <div className="space-y-4 relative">
+               {/* 9:00 Event */}
+               <div className="flex gap-4">
+                  <span className="text-xs text-slate-400 w-10 pt-2">09:00</span>
+                  <div className="flex-1 bg-blue-50 border-l-4 border-blue-500 p-3 rounded text-sm text-blue-800">
+                    <span className="font-bold block">产品周会</span>
+                    <span className="text-xs opacity-70">09:00 - 10:00</span>
+                  </div>
+               </div>
+
+               {/* 14:00 AI Event (Ghost) */}
+               <div className="flex gap-4">
+                  <span className="text-xs text-slate-400 w-10 pt-2">14:00</span>
+                  <div className="flex-1 bg-white border-2 border-dashed border-emerald-400 p-3 rounded text-sm text-slate-800 relative shadow-lg">
+                    <div className="absolute -top-3 -right-3 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm flex items-center gap-1 animate-bounce">
+                      <Sparkles size={10} /> AI 建议落位
+                    </div>
+                    <span className="font-bold block">更新 Q1 季报 PPT</span>
+                    <span className="text-xs text-slate-500">14:00 - 15:00 | 来源：周会待办</span>
+                    
+                    {/* Conflict Alert Overlay */}
+                    <div className="absolute bottom-2 right-2 flex gap-1">
+                       <button className="bg-emerald-100 text-emerald-700 text-[10px] px-2 py-1 rounded font-bold hover:bg-emerald-200">
+                         确认
+                       </button>
+                    </div>
+                  </div>
+               </div>
+               
+               {/* 15:00 Event */}
+               <div className="flex gap-4 opacity-50">
+                  <span className="text-xs text-slate-400 w-10 pt-2">15:00</span>
+                  <div className="flex-1 bg-slate-50 border-l-4 border-slate-300 p-3 rounded text-sm text-slate-600">
+                    <span className="font-bold block">Deep Work</span>
+                  </div>
+               </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Phase 4: Messages */}
+      <section className="py-24 px-8 max-w-6xl mx-auto bg-slate-50">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+           <div className="order-2 lg:order-1 relative">
+              {/* Mock UI for Messages */}
+              <div className="bg-white rounded-2xl border border-slate-200 shadow-xl max-w-sm mx-auto overflow-hidden">
+                <div className="bg-slate-50 p-3 border-b border-slate-100 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-xs">AI</div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-800">AI Assistant</p>
+                    <p className="text-[10px] text-slate-400">Bot • Just now</p>
+                  </div>
+                </div>
+                
+                <div className="p-4 space-y-4">
+                  {/* Message Bubble */}
+                  <div className="flex gap-3">
+                    <div className="w-8 h-8 rounded-full bg-indigo-600 flex-shrink-0 flex items-center justify-center text-white font-bold text-xs mt-1">AI</div>
+                    <div className="space-y-2 max-w-[85%]">
+                      <div className="bg-indigo-50 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700">
+                        <p className="mb-2">👋 Hi Bob, Alice 在 [Q1 产品周会] 中指派了一个新任务给你。</p>
+                        
+                        {/* Task Card in Message */}
+                        <div className="bg-white p-3 rounded-xl border border-indigo-100 shadow-sm">
+                          <div className="flex items-center gap-2 mb-1">
+                            <CheckCircle2 size={14} className="text-blue-500" />
+                            <span className="font-bold text-xs">更新 API 文档</span>
+                          </div>
+                          <p className="text-[10px] text-slate-500 mb-2">截止日期: 下周三</p>
+                          <button className="w-full bg-indigo-600 text-white text-[10px] py-1.5 rounded font-medium hover:bg-indigo-700">
+                            查看详情 & 添加到日历
+                          </button>
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-slate-400 ml-1">10:45 AM</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Input Area */}
+                <div className="p-3 border-t border-slate-100 flex gap-2">
+                  <input className="flex-1 bg-slate-50 border border-slate-200 rounded-full px-3 py-1.5 text-xs outline-none" placeholder="Reply to AI..." />
+                  <button className="p-1.5 bg-indigo-600 text-white rounded-full"><ArrowRight size={14} /></button>
+                </div>
+              </div>
+           </div>
+           
+           <div className="order-1 lg:order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold mb-6">
+                <span className="w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center text-[10px]">4</span>
+                第四阶段：消息模块
+              </div>
+              <h2 className="text-3xl font-bold mb-6">通知与分发：<br/>闭环的最后一公里</h2>
+              <p className="text-lg text-slate-500 mb-6 leading-relaxed">
+                任务不仅仅是创建，更需要触达。AI 自动将指派的任务分发给相关人员，确保信息同步。
+              </p>
+              
+              <div className="space-y-6">
+                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                  <h4 className="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                    <MessageSquare size={16} className="text-purple-500" /> AI 运行逻辑
+                  </h4>
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    当待办事项的状态变更为“已确认”且包含“指派人”时，系统会自动触发消息推送服务。AI 会基于任务内容生成自然的通知文案，并通过 IM 接口发送给接收者。
+                  </p>
+                </div>
+
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 text-slate-600">
+                    <CheckCircle2 size={18} className="text-purple-500 mt-1 shrink-0" />
+                    <span><strong>任务指派通知：</strong> 自动通知被指派人，附带任务详情卡片。</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-slate-600">
+                    <CheckCircle2 size={18} className="text-purple-500 mt-1 shrink-0" />
+                    <span><strong>每日简报：</strong> 每天早上自动汇总昨日会议待办与今日日程，生成 Morning Brief。</span>
+                  </li>
+                </ul>
+              </div>
+           </div>
+        </div>
+      </section>
+
+      {/* Design Logic & Metrics Section */}
+      <section className="py-24 bg-white border-t border-slate-200">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">设计背后的逻辑与度量</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              不仅仅是功能的堆砌，更是对用户心智模型与业务效率的深度重构。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Problem & Solution */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-red-50 text-red-500 rounded-xl flex items-center justify-center mb-6">
+                <Zap size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-4">痛点与解法</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs font-bold text-slate-400 uppercase mb-1">Problem</p>
+                  <p className="text-slate-600 text-sm">会议记录整理耗时，待办事项散落在文档中，极易遗漏。</p>
+                </div>
+                <div className="w-full h-px bg-slate-200"></div>
+                <div>
+                  <p className="text-xs font-bold text-blue-500 uppercase mb-1">Solution</p>
+                  <p className="text-slate-600 text-sm">AI 实时转写并提取意图，侧边栏即时确认，无缝衔接日程。</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Metrics */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-emerald-50 text-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                <Clock size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-4">体验度量</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="text-slate-500">会后整理时间</span>
+                    <span className="font-bold text-emerald-600">-93%</span>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '7%' }}></div>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-1">30分钟 <ArrowRight size={10} className="inline" /> 2分钟</p>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="text-slate-500">任务执行率</span>
+                    <span className="font-bold text-blue-600">+40%</span>
+                  </div>
+                  <div className="w-full bg-slate-200 rounded-full h-2">
+                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Design Principles */}
+            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-indigo-50 text-indigo-500 rounded-xl flex items-center justify-center mb-6">
+                <Layout size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-4">设计原则</h3>
+              <ul className="space-y-4">
+                <li className="flex gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0"></div>
+                  <div>
+                    <p className="font-bold text-sm text-slate-800">无感介入 (Invisible AI)</p>
+                    <p className="text-xs text-slate-500 mt-0.5">AI 不打扰用户心流，只在侧边栏静默处理，按需展开。</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0"></div>
+                  <div>
+                    <p className="font-bold text-sm text-slate-800">可控性 (Controllability)</p>
+                    <p className="text-xs text-slate-500 mt-0.5">用户始终拥有最终决定权，AI 仅提供建议与草稿。</p>
+                  </div>
+                </li>
+                <li className="flex gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0"></div>
+                  <div>
+                    <p className="font-bold text-sm text-slate-800">信任构建 (Trust)</p>
+                    <p className="text-xs text-slate-500 mt-0.5">显性化展示“置信度”与“来源”，让黑盒变得透明。</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-slate-200 py-12 text-center">
+        <p className="text-slate-500 mb-4">Designed for Kingdee Enterprise Workspace</p>
+        <button 
+          onClick={onBack}
+          className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline"
+        >
+          返回原型体验 <ArrowRight size={16} />
+        </button>
+      </footer>
+    </div>
+  );
+};
+
+export default DesignPortfolio;
