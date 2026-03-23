@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
+      base: mode === 'production' ? '/hohoPortfolio/' : '/',
       server: {
         port: 3005,
         host: '127.0.0.1',
